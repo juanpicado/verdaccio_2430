@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:5
+    container_name: "verdaccio"
+    networks:
+      - node-network
+    #environment:
+    #  - VERDACCIO_PORT=443
+    #  - VERDACCIO_PROTOCOL=https
+    ports:
+      - "4873:4873"
+    volumes:
+      - "./config:/verdaccio/conf"
+      - "./storage:/verdaccio/storage"
+      # - "./plugins:/verdaccio/plugins"
+      # - "./cache/npm:/opt/verdaccio/.npm"
+      # - "./cache/yarn:/opt/verdaccio/.yarn/cache"
+
+networks:
+  node-network:
+    driver: bridge
