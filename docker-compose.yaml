@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   verdaccio:
-    image: verdaccio/verdaccio:5
+    image: verdaccio/verdaccio:5.1.1
     container_name: "verdaccio"
     networks:
       - node-network
@@ -14,9 +14,9 @@ services:
     volumes:
       - "./config:/verdaccio/conf"
       - "./storage:/verdaccio/storage"
-      # - "./plugins:/verdaccio/plugins"
-      # - "./cache/npm:/opt/verdaccio/.npm"
-      # - "./cache/yarn:/opt/verdaccio/.yarn/cache"
+      - "./plugins:/verdaccio/plugins"
+      #- "./cache/npm:/opt/verdaccio/.npm"
+      #- "./cache/yarn:/opt/verdaccio/.yarn/cache"
 
 networks:
   node-network:
